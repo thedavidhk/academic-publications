@@ -196,7 +196,9 @@ class Academic_Publications {
 
 		$plugin_metaboxes = new Academic_Publications_Admin_Metaboxes( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'add_meta_boxes', $plugin_metaboxes, 'add_metaboxes' );
+		$this->loader->add_action( 'add_meta_boxes', $plugin_metaboxes, 'add_metaboxes', 10, 2 );
+		$this->loader->add_action( 'add_meta_boxes_job', $plugin_metaboxes, 'set_meta' );
+		$this->loader->add_action( 'save_post_job', $plugin_metaboxes, 'validate_meta', 10, 2 );
 
 	}
 

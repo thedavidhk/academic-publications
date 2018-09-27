@@ -12,7 +12,7 @@
  * @subpackage Academic_Publications/admin/partials
  */
 
-// wp_nonce_field( $this->plugin_name, 'general' );
+wp_nonce_field( $this->plugin_name, 'general' );
 
 
 $atts                 = array();
