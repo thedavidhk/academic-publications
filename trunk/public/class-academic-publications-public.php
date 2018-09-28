@@ -102,15 +102,60 @@ class Academic_Publications_Public {
 
 	/**
 	 * Render a list of publications to the front end
+	 *
+	 * @since 1.0.0
 	 */
 	public function list_publications()
 	{
 		$args = array( 'post_type' => 'publications' );
 		$loop = new WP_Query( $args );
-		while ($loop->have_posts()) {
+		while ( $loop->have_posts() ) {
 			$loop->the_post();
-			include();
+			$authors = get_the_terms( get_the_ID(), 'publication_authors' );
+			$author_string = $this->authors_string( $authors );
+			include( plugin_dir_path( __FILE__ ) . 'partials/' . $this->plugin_name . 'public-list.php' );
 		}
+	}
+
+	/**
+	 * Render a list of publications to the front end
+	 *
+	 * @since 	1.0.0
+	 *
+	 * @param		array		$authors		Array of taxonomy terms publication_authors
+	 *
+	 * @return	string							String of authors displayed in list
+	 */
+	private function authors_string( $authors )
+	{
+		$return = '';
+
+		if ( !$authors ) {
+			return $return;
+		}
+
+		$names = array();
+		foreach ( $authors as $author ) {
+			$names[] = $author['name'];
+		} // foreach
+
+		foreach ($names as $key => $name ) {
+			$first_name = explode(" ", $name);
+			$last_name = array_pop($first_name);
+			//$names[$key] = $last_name . ', ' implode(" ", $first_name);
+			var_dump($first_name);
+			var_dump($last_name);
+		} // foreach
+
+		sort( $names );
+
+		if ( count($names) < 3 ) {
+			$return = implode( " & ", $names );
+			return $return;
+		}
+		else {
+			$return = implode( "; ", $names );
+		} // authors_string()
 	}
 
 }
