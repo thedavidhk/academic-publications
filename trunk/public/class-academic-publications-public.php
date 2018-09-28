@@ -100,4 +100,17 @@ class Academic_Publications_Public {
 
 	}
 
+	/**
+	 * Render a list of publications to the front end
+	 */
+	public function list_publications()
+	{
+		$args = array( 'post_type' => 'publications' );
+		$loop = new WP_Query( $args );
+		while ($loop->have_posts()) {
+			$loop->the_post();
+			include();
+		}
+	}
+
 }
