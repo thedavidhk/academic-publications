@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Academic Publications
  * Plugin URI:        https://github.com/davidhk/academic-publications
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       A Wordpress plugin for creating an archive of academic publications.
  * Version:           1.0.0
  * Author:            David Herok
  * Author URI:        https://david-herok.com
