@@ -118,7 +118,7 @@ class Academic_Publications {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-academic-publications-admin.php';
 
 		/**
-		 * The class responsible for defining all actions that occur in the admin area.
+		 * The class responsible for defining all actions related to meta boxes.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-academic-publications-admin-metaboxes.php';
 
