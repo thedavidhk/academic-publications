@@ -185,7 +185,7 @@ class Academic_Publications_Admin {
 		$plural 	= 'Authors';
 		$single 	= 'Author';
 		$tax_name 	= 'publication_authors';
-		$opts['hierarchical']						= TRUE;
+		$opts['hierarchical']						= FALSE;
 		//$opts['meta_box_cb'] 					= '';
 		$opts['public']									= TRUE;
 		$opts['query_var']							= $tax_name;
