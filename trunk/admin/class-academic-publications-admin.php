@@ -254,6 +254,17 @@ class Academic_Publications_Admin {
 				)
 			);
 		}
+		if ( !term_exists( 'Policy Paper', 'publication_type' ) )
+		{
+			wp_insert_term(
+				'Policy Paper',
+				'publication_type',
+				array(
+					'description'	=> 'Policy Papers',
+					'slug'				=> 'policy-paper'
+				)
+			);
+		}
 	}
 
 }
